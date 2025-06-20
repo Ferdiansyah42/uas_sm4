@@ -24,3 +24,8 @@ class SmartMoney extends StatelessWidget {
     );
   }
 }
+
+class MainPage extends StatefulWidget {
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
