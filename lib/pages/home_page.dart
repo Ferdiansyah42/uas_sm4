@@ -90,12 +90,39 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildQuickMenu(Icons.qr_code, 'Scan & Pay'),
+                      _buildQuickMenu(Icons.send, 'Transfer'),
+                      _buildQuickMenu(Icons.request_page, 'Terima'),
+                      _buildQuickMenu(Icons.add_circle, 'Top Up'),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildQuickMenu(IconData icon, String label) {
+    return Column(
+      children: [
+        CircleAvatar(
+          backgroundColor: Colors.blue[50],
+          radius: 26,
+          child: Icon(icon, color: Colors.blue[700], size: 28),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 12),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
