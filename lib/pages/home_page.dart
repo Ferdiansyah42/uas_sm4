@@ -32,31 +32,43 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Stack(
                     children: [
-                      Text(
-                        'Total Wallet Balance',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.9),
-                          fontSize: 14,
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Image.asset(
+                          'assets/mastercard.png',
+                          width: 40,
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            '\Rp.12.000.000',
+                          Text(
+                            'Total Wallet Balance',
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 14,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Icon(
-                            Icons.visibility_off,
-                            color: Colors.white.withOpacity(0.9),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Text(
+                                '\Rp.12.000.000',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Icon(
+                                Icons.visibility_off,
+                                color: Colors.white.withOpacity(0.9),
+                              ),
+                            ],
                           ),
                         ],
                       ),
