@@ -122,22 +122,26 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 12),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: GridView.count(
-                        crossAxisCount: 4,
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        children: [
-                          _buildServiceItem(Icons.store, 'Nearby\nStores'),
-                          _buildServiceItem(Icons.shopping_bag, 'Online\nShopping'),
-                          _buildServiceItem(Icons.flight, 'Travel &\nFlight'),
-                          _buildServiceItem(Icons.movie, 'Events &\nMovies'),
-                          _buildServiceItem(Icons.health_and_safety, 'Buy\nInsurance'),
-                          _buildServiceItem(Icons.directions_car, 'Get\nFASTag'),
-                          _buildServiceItem(Icons.devices, 'Buy\nElectronic'),
-                          _buildServiceItem(Icons.apps, 'All\nServices'),
-                        ],
+                      child: SizedBox(
+                        height: 180,
+                        child: GridView.count(
+                          crossAxisCount: 4,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 0.8,
+                          children: [
+                            _buildServiceItem(Icons.store, 'Nearby\nStores'),
+                            _buildServiceItem(Icons.shopping_bag, 'Online\nShopping'),
+                            _buildServiceItem(Icons.flight, 'Travel &\nFlight'),
+                            _buildServiceItem(Icons.movie, 'Events &\nMovies'),
+                            _buildServiceItem(Icons.health_and_safety, 'Buy\nInsurance'),
+                            _buildServiceItem(Icons.directions_car, 'Get\nFASTag'),
+                            _buildServiceItem(Icons.devices, 'Buy\nElectronic'),
+                            _buildServiceItem(Icons.apps, 'All\nServices'),
+                          ],
+                        ),
                       ),
                     ),
 
