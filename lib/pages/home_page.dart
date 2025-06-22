@@ -31,7 +31,6 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-
                           Positioned(
                             top: 20,
                             left: 16,
@@ -100,7 +99,68 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 100),
+
+                    const SizedBox(height: 120),
+
+                    // Discover Services
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            'Discover Services',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'See all',
+                            style: TextStyle(fontSize: 14, color: Colors.blue),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: GridView.count(
+                        crossAxisCount: 4,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        crossAxisSpacing: 16,
+                        mainAxisSpacing: 16,
+                        children: [
+                          _buildServiceItem(Icons.store, 'Nearby\nStores'),
+                          _buildServiceItem(Icons.shopping_bag, 'Online\nShopping'),
+                          _buildServiceItem(Icons.flight, 'Travel &\nFlight'),
+                          _buildServiceItem(Icons.movie, 'Events &\nMovies'),
+                          _buildServiceItem(Icons.health_and_safety, 'Buy\nInsurance'),
+                          _buildServiceItem(Icons.directions_car, 'Get\nFASTag'),
+                          _buildServiceItem(Icons.devices, 'Buy\nElectronic'),
+                          _buildServiceItem(Icons.apps, 'All\nServices'),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // Last Transaction
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            'Last Transaction',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'See all',
+                            style: TextStyle(fontSize: 14, color: Colors.blue),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 40),
                   ],
                 ),
               ),
@@ -148,6 +208,24 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.blue[50],
           radius: 26,
           child: Icon(icon, color: Colors.blue[700], size: 28),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 12),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildServiceItem(IconData icon, String label) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CircleAvatar(
+          backgroundColor: Colors.deepPurple[50],
+          child: Icon(icon, color: Colors.deepPurple),
         ),
         const SizedBox(height: 6),
         Text(
