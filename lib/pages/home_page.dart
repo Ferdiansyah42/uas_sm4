@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uas_sm4/pages/scan_page.dart'; // GANTI nama sesuai pubspec.yaml kamu
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,6 +19,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 80),
                 child: Column(
                   children: [
+                    // Wallet Balance Card
                     SizedBox(
                       height: 160,
                       child: Stack(
@@ -105,7 +107,7 @@ class HomePage extends StatelessWidget {
 
                     const SizedBox(height: 120),
 
-                    //  Services
+                    // Services Title
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -127,6 +129,8 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
+
+                    // Grid Services
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: GridView.builder(
@@ -167,7 +171,7 @@ class HomePage extends StatelessWidget {
 
                     const SizedBox(height: 24),
 
-                    // Last Transaction
+                    // History
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -203,7 +207,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-              // Menu Cepat
+              // Quick Menu
               Positioned(
                 top: 200,
                 left: 16,
@@ -224,10 +228,10 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _buildQuickMenu(Icons.qr_code, 'Scan & Pay'),
-                      _buildQuickMenu(Icons.send, 'Transfer'),
-                      _buildQuickMenu(Icons.request_page, 'Terima'),
-                      _buildQuickMenu(Icons.add_circle, 'Top Up'),
+                      _buildQuickMenu(context, Icons.qr_code, 'Scan & Pay'),
+                      _buildQuickMenu(context, Icons.send, 'Transfer'),
+                      _buildQuickMenu(context, Icons.request_page, 'Terima'),
+                      _buildQuickMenu(context, Icons.add_circle, 'Top Up'),
                     ],
                   ),
                 ),
@@ -239,25 +243,39 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickMenu(IconData icon, String label) {
-    return Column(
-      children: [
-        CircleAvatar(
-          backgroundColor: Colors.blue[50],
-          radius: 26,
-          child: Icon(icon, color: Colors.blue[700], size: 28),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+  Widget _buildQuickMenu(BuildContext context, IconData icon, String label) {
+    return GestureDetector(
+      onTap: () {
+        if (label == 'Scan & Pay') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ScanPage()),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Fitur "$label" belum tersedia')),
+          );
+        }
+      },
+      child: Column(
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.blue[50],
+            radius: 26,
+            child: Icon(icon, color: Colors.blue[700], size: 28),
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+          const SizedBox(height: 6),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 
@@ -288,7 +306,7 @@ class HomePage extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         backgroundColor: Colors.blue[100],
-        child: Icon(Icons.swap_horiz, color: Colors.blue),
+        child: const Icon(Icons.swap_horiz, color: Colors.blue),
       ),
       title: Text(title, style: const TextStyle(color: Colors.black)),
       subtitle: Text(date, style: const TextStyle(color: Colors.black54)),
