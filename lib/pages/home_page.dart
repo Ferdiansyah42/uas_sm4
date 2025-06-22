@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                                       Row(
                                         children: [
                                           const Text(
-                                            '\Rp.12.000.000',
+                                            'Rp.12.000.000',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 28,
