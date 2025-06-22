@@ -110,7 +110,11 @@ class HomePage extends StatelessWidget {
                         children: const [
                           Text(
                             'Services',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                           Text(
                             'Lihat Semuanya',
@@ -155,7 +159,11 @@ class HomePage extends StatelessWidget {
                         children: const [
                           Text(
                             'History Transaction',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                           Text(
                             'Lihat semuanya',
@@ -226,7 +234,11 @@ class HomePage extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           label,
-          style: const TextStyle(fontSize: 12),
+          style: const TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -244,7 +256,11 @@ class HomePage extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           label,
-          style: const TextStyle(fontSize: 12),
+          style: const TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -258,11 +274,14 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.blue[100],
         child: Icon(Icons.swap_horiz, color: Colors.blue),
       ),
-      title: Text(title),
-      subtitle: Text(date),
+      title: Text(title, style: const TextStyle(color: Colors.black)),
+      subtitle: Text(date, style: const TextStyle(color: Colors.black54)),
       trailing: Text(
         amount,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
       ),
     );
   }
