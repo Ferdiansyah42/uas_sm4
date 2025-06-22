@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
+
+  @override
+  State<SettingPage> createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Settings Page', style: TextStyle(fontSize: 24)),
+      backgroundColor: const Color(0xFFEAF2FF),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          // Nanti isi di sini
+        ],
       ),
     );
   }
