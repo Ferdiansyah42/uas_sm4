@@ -5,6 +5,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double itemHeight = screenHeight * 0.13;
+
     return Scaffold(
       backgroundColor: const Color(0xFFEAF2FF),
       body: SafeArea(
@@ -126,26 +129,39 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 12),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: SizedBox(
-                        height: 180,
-                        child: GridView.count(
+                      child: GridView.builder(
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
-                          childAspectRatio: 0.8,
-                          children: [
-                            _buildServiceItem(Icons.store, 'Nearby\nStores'),
-                            _buildServiceItem(Icons.shopping_bag, 'Online\nShopping'),
-                            _buildServiceItem(Icons.flight, 'Travel &\nFlight'),
-                            _buildServiceItem(Icons.movie, 'Events &\nMovies'),
-                            _buildServiceItem(Icons.health_and_safety, 'Buy\nInsurance'),
-                            _buildServiceItem(Icons.directions_car, 'Get\nFASTag'),
-                            _buildServiceItem(Icons.devices, 'Buy\nElectronic'),
-                            _buildServiceItem(Icons.apps, 'All\nServices'),
-                          ],
+                          mainAxisExtent: itemHeight,
                         ),
+                        itemBuilder: (context, index) {
+                          final icons = [
+                            Icons.store,
+                            Icons.shopping_bag,
+                            Icons.flight,
+                            Icons.movie,
+                            Icons.health_and_safety,
+                            Icons.directions_car,
+                            Icons.devices,
+                            Icons.apps,
+                          ];
+                          final labels = [
+                            'Nearby\nStores',
+                            'Online\nShopping',
+                            'Travel &\nFlight',
+                            'Events &\nMovies',
+                            'Buy\nInsurance',
+                            'Get\nFASTag',
+                            'Buy\nElectronic',
+                            'All\nServices',
+                          ];
+                          return _buildServiceItem(icons[index], labels[index]);
+                        },
                       ),
                     ),
 
