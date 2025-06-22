@@ -160,6 +160,16 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
+                        children: [
+                          _buildTransactionItem('Top Up BCA', 'Rp 100.000', '12 Jun 2025'),
+                          _buildTransactionItem('Pulsa Telkomsel', 'Rp 50.000', '10 Jun 2025'),
+                        ],
+                      ),
+                    ),
                     const SizedBox(height: 40),
                   ],
                 ),
@@ -234,6 +244,22 @@ class HomePage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ],
+    );
+  }
+
+  Widget _buildTransactionItem(String title, String amount, String date) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: CircleAvatar(
+        backgroundColor: Colors.blue[100],
+        child: Icon(Icons.swap_horiz, color: Colors.blue),
+      ),
+      title: Text(title),
+      subtitle: Text(date),
+      trailing: Text(
+        amount,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
