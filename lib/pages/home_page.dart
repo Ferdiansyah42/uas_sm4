@@ -102,18 +102,18 @@ class HomePage extends StatelessWidget {
 
                     const SizedBox(height: 120),
 
-                    // Discover Services
+                    //  Services
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
-                            'Discover Services',
+                            'Services',
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'See all',
+                            'Lihat Semuanya',
                             style: TextStyle(fontSize: 14, color: Colors.blue),
                           ),
                         ],
@@ -150,11 +150,11 @@ class HomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
-                            'Last Transaction',
+                            'History Transaction',
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'See all',
+                            'Lihat semuanya',
                             style: TextStyle(fontSize: 14, color: Colors.blue),
                           ),
                         ],
