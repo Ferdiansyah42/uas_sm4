@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uas_sm4/pages/scan_page.dart'; // GANTI nama sesuai pubspec.yaml kamu
+import 'scan_page.dart';
+import 'transfer_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 80),
                 child: Column(
                   children: [
-                    // Wallet Balance Card
+
                     SizedBox(
                       height: 160,
                       child: Stack(
@@ -107,7 +108,7 @@ class HomePage extends StatelessWidget {
 
                     const SizedBox(height: 120),
 
-                    // Services Title
+                    // Services
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -130,7 +131,7 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
 
-                    // Grid Services
+                    // service
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: GridView.builder(
@@ -171,7 +172,7 @@ class HomePage extends StatelessWidget {
 
                     const SizedBox(height: 24),
 
-                    // History
+                    // Last Transaction
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -207,7 +208,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-              // Quick Menu
+              // Menu Cepat
               Positioned(
                 top: 200,
                 left: 16,
@@ -247,10 +248,9 @@ class HomePage extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (label == 'Scan & Pay') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ScanPage()),
-          );
+          Navigator.push(context, MaterialPageRoute(builder: (_) => const ScanPage()));
+        } else if (label == 'Transfer') {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => const TransferPage()));
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Fitur "$label" belum tersedia')),
@@ -306,7 +306,7 @@ class HomePage extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         backgroundColor: Colors.blue[100],
-        child: const Icon(Icons.swap_horiz, color: Colors.blue),
+        child: Icon(Icons.swap_horiz, color: Colors.blue),
       ),
       title: Text(title, style: const TextStyle(color: Colors.black)),
       subtitle: Text(date, style: const TextStyle(color: Colors.black54)),
