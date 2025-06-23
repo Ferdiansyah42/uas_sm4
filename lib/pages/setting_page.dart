@@ -15,85 +15,135 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFEAF2FF),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            const SizedBox(height: 20),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 10),
 
-            Center(
-              child: CircleAvatar(
-                radius: 45,
-                backgroundColor: Colors.transparent,
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/profil.png',
-                    width: 90,
-                    height: 90,
-                    fit: BoxFit.cover,
+              Center(
+                child: CircleAvatar(
+                  radius: 48,
+                  backgroundColor: Colors.white,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/profil.png',
+                      width: 90,
+                      height: 90,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 10),
+              const SizedBox(height: 12),
 
-            // Nama
-            const Center(
-              child: Text(
-                'Ferdi',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.black,
+              const Center(
+                child: Text(
+                  'Ferdi',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 20),
-            const Divider(thickness: 1),
-            const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
-            ListTile(
-              leading: const Icon(Icons.person, color: Colors.black),
-              title: const Text(
-                'Pengaturan Profil',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+              _buildSettingCard(
+                icon: Icons.person,
+                title: 'Pengaturan Profil',
+                onTap: () {},
+              ),
+
+              _buildSettingCard(
+                icon: Icons.history,
+                title: 'Riwayat Transaksi',
+                
+                onTap: () {},
+              ),
+
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
+                    )
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: const [
+                        Icon(Icons.dark_mode, color: Colors.black),
+                        SizedBox(width: 12),
+                        Text(
+                          'Mode Gelap',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Switch(
+                      value: isDarkModeEnabled,
+                      activeColor: Colors.deepPurple,
+                      onChanged: (val) {
+                        setState(() {
+                          isDarkModeEnabled = val;
+                        });
+                      },
+                    ),
+                  ],
                 ),
               ),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.history, color: Colors.black),
-              title: const Text(
-                'History Transaction',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              onTap: () {},
-            ),
-
-            SwitchListTile(
-              secondary: const Icon(Icons.dark_mode, color: Colors.black),
-              title: const Text(
-                'Mode Gelap',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              value: isDarkModeEnabled,
-              onChanged: (val) {
-                setState(() {
-                  isDarkModeEnabled = val;
-                });
-              },
-            ),
-          ],
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildSettingCard({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          )
+        ],
+      ),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.deepPurple),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
+        ),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black54),
+        onTap: onTap,
       ),
     );
   }
