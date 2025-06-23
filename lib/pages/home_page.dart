@@ -15,25 +15,25 @@ class _HomePageState extends State<HomePage> {
   int? selectedServiceIndex;
 
   final icons = [
-    Icons.store,
-    Icons.shopping_bag,
-    Icons.flight,
-    Icons.movie,
-    Icons.health_and_safety,
-    Icons.directions_car,
-    Icons.devices,
-    Icons.apps,
+    Icons.phone_android,  
+    Icons.shopping_bag,            
+    Icons.flight,                 
+    Icons.movie,                 
+    Icons.flash_on,                
+    Icons.directions_car,          
+    Icons.devices,                 
+    Icons.apps, 
   ];
 
   final labels = [
-    'Nearby\nStores',
-    'Online\nShopping',
-    'Travel &\nFlight',
-    'Events &\nMovies',
-    'Buy\nInsurance',
-    'Get\nFASTag',
-    'Buy\nElectronic',
-    'All\nServices',
+    'Beli\nPulsa',
+    'Toko\nOnline',
+    'beli Tiket\nTravel',
+    'film \nMovies',
+    'Token\nListrik',
+    'Taxi\nOnline',
+    'Toko\nElectronic',
+    'Semua\nService',
   ];
 
   @override
