@@ -8,6 +8,8 @@ void main() {
 }
 
 class SmartMoney extends StatelessWidget {
+  const SmartMoney({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,6 +28,8 @@ class SmartMoney extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
