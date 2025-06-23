@@ -6,13 +6,17 @@ class TransferPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEAF2FF),  
-      body: const Center(
-        child: Text(
-          'Halaman Kirim Uang',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      backgroundColor: const Color(0xFFEAF2FF),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 109, 68, 180),
+        title: const Text(
+          'Kirim Uang',
+          style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
     );
   }
+
 }
