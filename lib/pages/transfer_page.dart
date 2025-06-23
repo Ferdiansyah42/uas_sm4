@@ -5,6 +5,7 @@ class TransferPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> daftarNama = ['Aldi', 'Budi', 'Rudi', 'Rendi', 'Suradi'];
     return Scaffold(
       backgroundColor: const Color(0xFFEAF2FF),
       appBar: AppBar(
@@ -48,6 +49,30 @@ class TransferPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(daftarNama.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 16),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 28,
+                              backgroundImage: const AssetImage('assets/profil.png'),
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              daftarNama[index],
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                ),
               ],
             ),
           ),
