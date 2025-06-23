@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'scan_page.dart';
 import 'transfer_page.dart';
+import 'terima_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -251,6 +252,8 @@ class HomePage extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const ScanPage()));
         } else if (label == 'Transfer') {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const TransferPage()));
+        } else if (label == 'Terima') {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => const TerimaPage()));
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Fitur "$label" belum tersedia')),
