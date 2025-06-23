@@ -82,6 +82,35 @@ class _TopUpPageState extends State<TopUpPage> {
 
           const SizedBox(height: 16),
 
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
+                )
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Metode Pembayaran',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 12),
+                _buildMethodTile('E-Wallet', 'Gopay, OVO, Dana', Icons.account_balance_wallet),
+                const SizedBox(height: 8),
+                _buildMethodTile('Transfer Bank', 'BCA, BRI, Mandiri', Icons.account_balance),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
         ],
       ),
     );
@@ -109,6 +138,32 @@ class _TopUpPageState extends State<TopUpPage> {
             color: isSelected ? Colors.white : Colors.deepPurple,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildMethodTile(String title, String subtitle, IconData icon) {
+    final bool isSelected = selectedMethod == title;
+    return Container(
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.deepPurple.withOpacity(0.1) : Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        leading: Icon(icon, color: isSelected ? Colors.deepPurple : Colors.black54),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: isSelected ? Colors.deepPurple : Colors.black87,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+        subtitle: Text(subtitle),
+        onTap: () {
+          setState(() {
+            selectedMethod = title;
+          });
+        },
       ),
     );
   }
