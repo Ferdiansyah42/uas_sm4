@@ -4,8 +4,37 @@ import 'transfer_page.dart';
 import 'terima_page.dart';
 import 'top_up_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int? selectedServiceIndex;
+
+  final icons = [
+    Icons.store,
+    Icons.shopping_bag,
+    Icons.flight,
+    Icons.movie,
+    Icons.health_and_safety,
+    Icons.directions_car,
+    Icons.devices,
+    Icons.apps,
+  ];
+
+  final labels = [
+    'Nearby\nStores',
+    'Online\nShopping',
+    'Travel &\nFlight',
+    'Events &\nMovies',
+    'Buy\nInsurance',
+    'Get\nFASTag',
+    'Buy\nElectronic',
+    'All\nServices',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +165,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: GridView.builder(
-                        itemCount: 8,
+                        itemCount: icons.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -146,27 +175,18 @@ class HomePage extends StatelessWidget {
                           mainAxisExtent: itemHeight,
                         ),
                         itemBuilder: (context, index) {
-                          final icons = [
-                            Icons.store,
-                            Icons.shopping_bag,
-                            Icons.flight,
-                            Icons.movie,
-                            Icons.health_and_safety,
-                            Icons.directions_car,
-                            Icons.devices,
-                            Icons.apps,
-                          ];
-                          final labels = [
-                            'Nearby\nStores',
-                            'Online\nShopping',
-                            'Travel &\nFlight',
-                            'Events &\nMovies',
-                            'Buy\nInsurance',
-                            'Get\nFASTag',
-                            'Buy\nElectronic',
-                            'All\nServices',
-                          ];
-                          return _buildServiceItem(icons[index], labels[index]);
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedServiceIndex = index;
+                              });
+                            },
+                            child: _buildServiceItem(
+                              icons[index],
+                              labels[index],
+                              selectedServiceIndex == index,
+                            ),
+                          );
                         },
                       ),
                     ),
@@ -245,6 +265,40 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _buildServiceItem(IconData icon, String label, bool isSelected) {
+    return Container(
+      decoration: BoxDecoration(
+        color: isSelected ? const Color.fromARGB(255, 183, 107, 241) : Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: isSelected ? Colors.white : Colors.deepPurple[50],
+            child: Icon(
+              icon,
+              color: isSelected ? const Color(0xFF6C63FF) : Colors.deepPurple,
+              size: 20,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: isSelected ? Colors.white : Colors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildQuickMenu(BuildContext context, IconData icon, String label) {
     return GestureDetector(
       onTap: () {
@@ -256,10 +310,6 @@ class HomePage extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const TerimaPage()));
         } else if (label == 'Top Up') {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const TopUpPage()));
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Fitur "$label" belum tersedia')),
-          );
         }
       },
       child: Column(
@@ -281,28 +331,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildServiceItem(IconData icon, String label) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CircleAvatar(
-          backgroundColor: Colors.deepPurple[50],
-          child: Icon(icon, color: Colors.deepPurple),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 
