@@ -6,12 +6,7 @@ class TransferPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEAF2FF),
-      appBar: AppBar(
-        title: const Text('Kirim Uang'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
+      backgroundColor: const Color(0xFFEAF2FF),  
       body: const Center(
         child: Text(
           'Halaman Kirim Uang',
