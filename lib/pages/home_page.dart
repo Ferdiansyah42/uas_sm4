@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                             child: Container(
                               height: 100,
                               decoration: BoxDecoration(
-                                color: const Color(0xFF4E54C8),
+                                color: const Color.fromARGB(255, 72, 77, 175),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                             ),
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
-                                  colors: [Color(0xFF6C63FF), Color(0xFF4E54C8)],
+                                  colors: [Color.fromARGB(255, 0, 0, 0), Color(0xFF4E54C8)],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                 ),
