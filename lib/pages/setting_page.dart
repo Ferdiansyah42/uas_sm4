@@ -61,8 +61,20 @@ class _SettingPageState extends State<SettingPage> {
               _buildSettingCard(
                 icon: Icons.history,
                 title: 'Riwayat Transaksi',
-                
+
                 onTap: () {},
+              ),
+              _buildSettingCard(
+                icon: Icons.lock,
+                title: 'Ganti Password',
+                onTap: () {
+                },
+              ),
+              _buildSettingCard(
+                icon: Icons.lock_open,
+                title: 'Lupa Password',
+                onTap: () {
+                },
               ),
 
               Container(
@@ -106,6 +118,23 @@ class _SettingPageState extends State<SettingPage> {
                       },
                     ),
                   ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              ElevatedButton.icon(
+                onPressed: () {
+                },
+                icon: const Icon(Icons.logout),
+                label: const Text('Keluar'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.redAccent,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
                 ),
               ),
             ],
