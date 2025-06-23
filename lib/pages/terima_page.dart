@@ -59,6 +59,34 @@ class TerimaPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 16),
+
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
+                )
+              ],
+            ),
+            child: Row(
+              children: [
+                const Text(
+                  'Terima uang secara langsung pakai QRIS',
+                  style: TextStyle(fontSize: 14),
+                ),
+                const Spacer(),
+                const Icon(Icons.qr_code, color: Colors.black54),
+                const Icon(Icons.arrow_forward_ios, size: 14),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
         ],
       ),
     );
