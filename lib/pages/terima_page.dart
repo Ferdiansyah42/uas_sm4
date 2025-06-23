@@ -8,8 +8,11 @@ class TerimaPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFEAF2FF),
       appBar: AppBar(
-        title: const Text('Terima'),
-        centerTitle: true, 
+        title: const Text(
+          'Terima',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 109, 68, 180),
         automaticallyImplyLeading: false,
       ),
