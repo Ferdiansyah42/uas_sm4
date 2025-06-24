@@ -3,6 +3,7 @@ import 'scan_page.dart';
 import 'transfer_page.dart';
 import 'terima_page.dart';
 import 'top_up_page.dart';
+import 'toko_online_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,14 +16,14 @@ class _HomePageState extends State<HomePage> {
   int? selectedServiceIndex;
 
   final icons = [
-    Icons.shopping_cart,         
-    Icons.movie_creation, 
-    Icons.fastfood,       
-    Icons.devices_other,   
-    Icons.videogame_asset,  
-    Icons.wb_sunny,       
-    Icons.newspaper,             
-    Icons.apps,                
+    Icons.shopping_cart,
+    Icons.movie_creation,
+    Icons.fastfood,
+    Icons.devices_other,
+    Icons.videogame_asset,
+    Icons.wb_sunny,
+    Icons.newspaper,
+    Icons.apps,
   ];
 
   final labels = [
@@ -180,6 +181,14 @@ class _HomePageState extends State<HomePage> {
                               setState(() {
                                 selectedServiceIndex = index;
                               });
+                              if (index == 0) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const TokoOnlinePage(),
+                                  ),
+                                );
+                              }
                             },
                             child: _buildServiceItem(
                               icons[index],
