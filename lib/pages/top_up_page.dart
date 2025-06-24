@@ -111,6 +111,31 @@ class _TopUpPageState extends State<TopUpPage> {
           ),
 
           const SizedBox(height: 24),
+
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                if (selectedAmount != null && selectedMethod != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Top up $selectedAmount via $selectedMethod (belum tersedia)'),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Pilih nominal dan metode pembayaran')),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+              child: const Text('Lanjutkan', style: TextStyle(fontSize: 16, color: Colors.white)),
+            ),
+          ),
         ],
       ),
     );
