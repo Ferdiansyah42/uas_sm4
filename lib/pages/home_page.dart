@@ -6,6 +6,7 @@ import 'top_up_page.dart';
 import 'toko_online_page.dart';
 import 'film_movies_page.dart';
 import 'pesan_makanan_page.dart';
+import 'toko_elektronik_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -190,7 +191,9 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(context, MaterialPageRoute(builder: (_) => const FilmMoviesPage()));
                               } else if (index == 2) {
                                 Navigator.push(context, MaterialPageRoute(builder: (_) => const PesanMakananPage()));
-                              }
+                              } else if (index == 3) {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const TokoElektronikPage()));
+                                }
                             },
                             child: _buildServiceItem(
                               icons[index],
