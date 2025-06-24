@@ -33,7 +33,7 @@ class _TokoElektronikPageState extends State<TokoElektronikPage> {
       setState(() {
         isLoading = false;
       });
-
+      
     }
   }
 
@@ -47,7 +47,37 @@ class _TokoElektronikPageState extends State<TokoElektronikPage> {
         backgroundColor: Colors.deepPurple,
         automaticallyImplyLeading: false,
       ),
-      
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: produkList.length,
+              itemBuilder: (context, index) {
+                final item = produkList[index];
+                return Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 3,
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.all(12),
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        item['thumbnail'],
+                        width: 60,
+                        height: 60,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    title: Text(
+                      item['title'],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text("Harga: \$${item['price']}"),
+                  ),
+                );
+              },
+            ),
     );
   }
 }
