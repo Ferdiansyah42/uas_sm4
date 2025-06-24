@@ -4,6 +4,7 @@ import 'transfer_page.dart';
 import 'terima_page.dart';
 import 'top_up_page.dart';
 import 'toko_online_page.dart';
+import 'film_movies_page.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -181,13 +182,11 @@ class _HomePageState extends State<HomePage> {
                               setState(() {
                                 selectedServiceIndex = index;
                               });
+
                               if (index == 0) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => const TokoOnlinePage(),
-                                  ),
-                                );
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const TokoOnlinePage()));
+                              } else if (index == 1) {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const FilmMoviesPage()));
                               }
                             },
                             child: _buildServiceItem(
