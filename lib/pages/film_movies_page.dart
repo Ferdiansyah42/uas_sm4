@@ -45,6 +45,29 @@ class _FilmMoviesPageState extends State<FilmMoviesPage> {
         backgroundColor: const Color.fromARGB(255, 126, 80, 206),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: movies.length,
+              itemBuilder: (context, index) {
+                final movie = movies[index];
+                return Card(
+                  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: ListTile(
+                    leading: movie['image'] != null
+                        ? Image.network(
+                            movie['image']['medium'],
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          )
+                        : const Icon(Icons.movie),
+                    title: Text(movie['name']),
+                    subtitle: Text(movie['genres'].join(', ')),
+                  ),
+                );
+              },
+            ),
     );
   }
 }
