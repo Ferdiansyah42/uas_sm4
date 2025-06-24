@@ -39,35 +39,42 @@ class _TokoOnlinePageState extends State<TokoOnlinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Toko Online'),
+        title: const Text(
+          'Toko Online',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 126, 80, 206),
         automaticallyImplyLeading: false
       ),
       body:
-          isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return Card(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 16,
+      isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return Card(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 16,
+                  ),
+                  child: ListTile(
+                    leading: Image.network(
+                      product['thumbnail'],
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
                     ),
-                    child: ListTile(
-                      leading: Image.network(
-                        product['thumbnail'],
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                      title: Text(product['title']),
-                      subtitle: Text("Rp ${product['price'] * 16000}"),
-                    ),
-                  );
-                },
-              ),
+                    title: Text(product['title']),
+                    subtitle: Text("Rp ${product['price'] * 16000}"),
+                  ),
+                );
+              },
+            ),
     );
   }
 }
