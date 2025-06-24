@@ -10,6 +10,7 @@ import 'toko_elektronik_page.dart';
 import 'voucher_game_page.dart';
 import 'cuaca_page.dart';
 import 'berita_page.dart';
+import 'semua_layanan_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -202,6 +203,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(context, MaterialPageRoute(builder: (_) => const CuacaPage()));
                               }else if (index == 6) {
                                 Navigator.push(context, MaterialPageRoute(builder: (_) => const BeritaPage()));
+                              } else if (index == 7) {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const SemuaLayananPage()));
                               }
                             },
                             child: _buildServiceItem(
