@@ -15,25 +15,25 @@ class _HomePageState extends State<HomePage> {
   int? selectedServiceIndex;
 
   final icons = [
-    Icons.phone_android,  
-    Icons.shopping_bag,            
-    Icons.flight,                 
-    Icons.movie,                 
-    Icons.flash_on,                
-    Icons.directions_car,          
-    Icons.devices,                 
-    Icons.apps, 
+    Icons.shopping_cart,         
+    Icons.movie_creation, 
+    Icons.fastfood,       
+    Icons.devices_other,   
+    Icons.videogame_asset,  
+    Icons.wb_sunny,       
+    Icons.newspaper,             
+    Icons.apps,                
   ];
 
   final labels = [
-    'Beli\nPulsa',
     'Toko\nOnline',
-    'beli Tiket\nTravel',
-    'film \nMovies',
-    'Token\nListrik',
-    'Taxi\nOnline',
-    'Toko\nElectronic',
-    'Semua\nService',
+    'Film &\nMovies',
+    'Pesan\nMakanan',
+    'Toko\nElektronik',
+    'Voucher\nGame',
+    'Cuaca',
+    'Berita',
+    'Semua\nLayanan',
   ];
 
   @override
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
-                            'Services',
+                            'Layanan',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 12),
 
-                    // service
+                    // Layanan
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: GridView.builder(
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
 
                     const SizedBox(height: 24),
 
-                    // Last Transaction
+                    // History
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           _buildTransactionItem('Top Up BCA', 'Rp 100.000', '12 Jun 2025'),
-                          _buildTransactionItem('Pulsa Telkomsel', 'Rp 50.000', '10 Jun 2025'),
+                          _buildTransactionItem('Pesan Makanan', 'Rp 50.000', '10 Jun 2025'),
                         ],
                       ),
                     ),
