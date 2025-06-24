@@ -7,7 +7,7 @@ class PesanMakananPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Menghilangkan panah kiri
+        automaticallyImplyLeading: false,
         title: const Text(
           'Pesan Makanan',
           style: TextStyle(color: Colors.white),
